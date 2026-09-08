@@ -1,0 +1,60 @@
+.highlight-menu {
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  color: white;
+  border-radius: 6px;
+  padding: 4px;
+  display: flex;
+  gap: 4px;
+  z-index: 999999;
+  transition:
+    opacity 0.2s ease,
+    background 0.2s ease;
+}
+
+.menu-btn {
+  border: none;
+  background: #f0f0f0;
+  border-radius: 4px;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #222;
+}
+
+.menu-btn:hover {
+  background: #e0e0e0;
+}
+
+.menu-btn.active {
+  outline: 2px solid #333;
+}
+
+.color-dot {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
+
+@media (prefers-color-scheme: dark) {
+  .highlight-menu {
+    background: #2b2b2b;
+    border-color: #444;
+    color: black;
+  }
+
+  .menu-btn {
+    background: #3a3a3a;
+    color: #eee;
+  }
+
+  .menu-btn:hover {
+    background: #4a4a4a;
+  }
+
+  .menu-btn.active {
+    outline: 2px solid #eee;
+  }
+}
