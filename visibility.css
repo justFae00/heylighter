@@ -1,0 +1,4 @@
+[data-highlight-id].highlight-filtered-out {
+  background-color: transparent !important;
+  text-decoration: none !important;
+}

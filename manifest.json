@@ -3,21 +3,30 @@
   "name": "Heylighter",
   "version": "1.0",
   "description": "Highlight text on any webpage",
-  "permissions": ["storage"],
+  "permissions": ["storage", "tabs"],
+  "action": {
+    "default_popup": "popup.html"
+  },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
       "js": [
+        "docx.min.js",
+        "colors.js",
+        "highlight-settings.js",
         "menu.js",
         "highlight-anchor.js",
         "highlight-model.js",
         "highlight-dom.js",
-        "storage.js",
-        "content.js",
         "highlight-options.js",
-        "highlight-hover.js"
+        "highlight-visibility.js",
+        "storage.js",
+        "highlight-hover.js",
+        "clearing.js",
+        "export.js",
+        "content.js"
       ],
-      "css": ["menu.css"]
+      "css": ["menu.css", "visibility.css"]
     }
   ]
 }

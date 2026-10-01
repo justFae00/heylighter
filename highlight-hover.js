@@ -1,4 +1,6 @@
 document.addEventListener("mouseover", (event) => {
+  if (!menuEnabled) return;
+
   const span = event.target.closest("[data-highlight-id]");
   if (!span) return;
 
@@ -6,8 +8,8 @@ document.addEventListener("mouseover", (event) => {
 
   const id = span.dataset.highlightId;
   const currentData = {
-    color: span.style.backgroundColor || null,
-    underlined: span.style.textDecoration === "underline",
+    color: span.dataset.color || null,
+    underlined: span.dataset.underlined === "true",
   };
 
   const options = buildActionOptions(

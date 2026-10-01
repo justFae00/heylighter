@@ -7,6 +7,8 @@ function wrapInSpan(node, highlightData) {
   const span = document.createElement("span");
   styleSpan(span, highlightData);
   span.dataset.highlightId = highlightData.id;
+  span.dataset.color = highlightData.color || "";
+  span.dataset.underlined = highlightData.underlined ? "true" : "false";
   node.parentNode.replaceChild(span, node);
   span.appendChild(node);
 }
@@ -55,7 +57,10 @@ function restyleSpans(id, changes) {
     .querySelectorAll(`span[data-highlight-id="${id}"]`)
     .forEach((span) => {
       styleSpan(span, changes);
+      span.dataset.color = changes.color || "";
+      span.dataset.underlined = changes.underlined ? "true" : "false";
     });
+  applyVisibilityFilter();
 }
 
 function removeSpans(id) {

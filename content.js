@@ -1,4 +1,6 @@
 document.addEventListener("mouseup", (event) => {
+  if (!menuEnabled) return;
+
   const selection = window.getSelection();
   const selectedText = selection.toString();
   if (selectedText.length === 0) return;
@@ -14,6 +16,7 @@ document.addEventListener("mouseup", (event) => {
       highlightData.underlined = false;
       applyHighlight(range, highlightData);
       saveHighlight(highlightData);
+      applyVisibilityFilter();
     },
     () => {
       const anchor = findAnchor(range.commonAncestorContainer);
@@ -22,6 +25,7 @@ document.addEventListener("mouseup", (event) => {
       highlightData.underlined = true;
       applyHighlight(range, highlightData);
       saveHighlight(highlightData);
+      applyVisibilityFilter();
     },
     () => {}, // no highlight exists yet, nothing to remove
   );
@@ -30,3 +34,4 @@ document.addEventListener("mouseup", (event) => {
 });
 
 loadHighlights();
+applyVisibilityFilter();
