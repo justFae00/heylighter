@@ -1,57 +1,64 @@
 .highlight-menu {
   position: absolute;
-  background: white;
-  border: 1px solid #ccc;
-  color: white;
-  border-radius: 6px;
-  padding: 4px;
   display: flex;
-  gap: 4px;
+  align-items: center;
+  gap: 10px;
+  background: #edeef0;
+  border-radius: 999px;
+  padding: 10px;
   z-index: 999999;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   transition:
     opacity 0.2s ease,
     background 0.2s ease;
 }
 
 .menu-btn {
-  border: none;
-  background: #f0f0f0;
-  border-radius: 4px;
-  padding: 4px 8px;
+  width: 30px;
+  height: 30px;
+  border: 1px rgb(225, 225, 225);
+  border-radius: 12px;
+  background: white;
+  color: #5f5f5f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  font-size: 13px;
-  color: #222;
+}
+
+.menu-btn.color {
+  box-shadow: none;
+}
+
+.color-fill {
+  width: 20px;
+  height: 20px;
+  border-radius: 8px;
+  display: block;
+}
+
+.menu-btn.align-bottom {
+  align-items: flex-end;
+  padding-bottom: 10px;
 }
 
 .menu-btn:hover {
-  background: #e0e0e0;
+  filter: brightness(0.96);
 }
 
 .menu-btn.active {
-  outline: 2px solid #333;
-}
-
-.color-dot {
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
+  outline: 2px solid #552284;
+  outline-offset: 2px;
 }
 
 @media (prefers-color-scheme: dark) {
   .highlight-menu {
     background: #2b2b2b;
-    border-color: #444;
-    color: black;
   }
 
   .menu-btn {
     background: #3a3a3a;
     color: #eee;
-  }
-
-  .menu-btn:hover {
-    background: #4a4a4a;
   }
 
   .menu-btn.active {

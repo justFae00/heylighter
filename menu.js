@@ -38,10 +38,16 @@ function showMenu(x, y, options) {
 
   options.forEach((option) => {
     const button = document.createElement("button");
-    button.className = "menu-btn" + (option.active ? " active" : "");
+    button.className =
+      "menu-btn" +
+      (option.isColorCircle ? " color" : "") +
+      (option.alignBottom ? " align-bottom" : "") +
+      (option.active ? " active" : "");
 
     if (option.isColorCircle) {
-      button.innerHTML = `<span class="color-dot" style="background:${option.color}"></span>`;
+      button.innerHTML = `<span class="color-fill" style="background:${option.color}"></span>`;
+    } else if (option.isIcon) {
+      button.innerHTML = option.icon;
     } else {
       button.textContent = option.label;
     }

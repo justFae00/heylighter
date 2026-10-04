@@ -17,7 +17,9 @@ function renderFilterPreview(filter) {
     return;
   }
   if (filter === "underline") {
-    filterPreview.innerHTML = `<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20h16"/><path d="M6 4v7a6 6 0 0 0 12 0V4"/></svg>`;
+    filterPreview.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="2" viewBox="0 0 14 2" fill="none">
+<rect width="14" height="2" rx="1" fill="#5F5F5F"/>
+</svg>`;
     return;
   }
   const match = HIGHLIGHT_COLORS.find((c) => c.value === filter);
@@ -43,15 +45,17 @@ function buildFilterPopover() {
   HIGHLIGHT_COLORS.forEach((c) => {
     const chip = document.createElement("button");
     chip.className = "filter-chip swatch";
-    chip.style.background = c.display;
     chip.dataset.filter = c.value;
+    chip.innerHTML = `<span class="color-fill" style="background:${c.display}"></span>`;
     filterPopover.appendChild(chip);
   });
 
   const underlineChip = document.createElement("button");
-  underlineChip.className = "filter-chip icon";
+  underlineChip.className = "filter-chip";
   underlineChip.dataset.filter = "underline";
-  underlineChip.innerHTML = `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20h16"/><path d="M6 4v7a6 6 0 0 0 12 0V4"/></svg>`;
+  underlineChip.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="2" viewBox="0 0 14 2" fill="none">
+<rect width="14" height="2" rx="1" fill="#5F5F5F"/>
+</svg>`;
   filterPopover.appendChild(underlineChip);
 
   filterPopover.querySelectorAll(".filter-chip").forEach((chip) => {
